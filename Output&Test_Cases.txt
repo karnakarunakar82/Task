@@ -1,0 +1,72 @@
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:06:47) [MSC v.1914 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+======== RESTART: C:/Users/Darling/Desktop/4-1/New folder/program.py ========
+>>> 
+>>> import program as pr
+>>> #create Operation
+>>> # 1. Checking for key is accepting string or not
+>>> # 		a. Key_type	String
+>>> #		b. Key_type	AlphaNumeric
+>>> #		c. Key_type	Numeric
+>>> #		d. Key_type	Special Character/Symbols
+>>> 
+>>> pr.create("Java",20)
+>>> 
+>>> pr.create("Java8",21)
+error: Invalind key_name!! key_name must contain only alphabets and no special characters or numbers
+>>> pr.create("1234"22)
+SyntaxError: invalid syntax
+>>> pr.create("1234",22)
+error: Invalind key_name!! key_name must contain only alphabets and no special characters or numbers
+>>> pr.create("!@#$",23)
+error: Invalind key_name!! key_name must contain only alphabets and no special characters or numbers
+>>> 
+>>> # 2.Creating key_value pair with time-to-live property
+>>> 
+>>> pr.create("JavScript",24,180)
+>>> 
+>>> # 3.Creating key_value pair without time-to-live property
+>>> pr.create("Python",25)
+>>> 
+>>> # Performing Read Operation
+>>> pr.create("Java")
+Traceback (most recent call last):
+  File "<pyshell#24>", line 1, in <module>
+    pr.create("Java")
+TypeError: create() missing 1 required positional argument: 'value'
+>>> pr.read("Java")
+'Java:20'
+>>> # calling no key is present
+>>> pr.read("C")
+error: given key does not exist in database. Please enter a valid key
+>>> pr.read("JavaScript")
+error: given key does not exist in database. Please enter a valid key
+>>> pr.read("JavScript")
+error: time-to-live of JavScript has expired
+>>> pr.read("Python")
+'Python:25'
+>>> ## Performing the modify Operation
+>>> 
+>>> pr.modify("Python",34)
+>>> 
+>>> pr.modify("JavScript",35)
+error: time-to-live of JavScript has expired
+>>> pr.read("Python")
+'Python:34'
+>>> 
+>>> ## Delete Operation
+>>> 
+>>> pr.delete("Java")
+key is successfully deleted
+>>> pr.delete("Java")
+error: given key does not exist in database. Please enter a valid key
+>>> pr.delete("JavScript")
+error: time-to-live of JavScript has expired
+>>> pr.delete("JavaScript")
+error: given key does not exist in database. Please enter a valid key
+>>> 
+>>> pr.delete("Python")
+key is successfully deleted
+>>> 
+>>> 
